@@ -7,6 +7,7 @@ export default function DefaultLayout() {
     <LayoutContainer>
       <Header />
       <Outlet />
+      {/* outlet fará com que os components colocados dentro DefaultLayout tenham seu espaço garantido pelo react router */}
     </LayoutContainer>
   )
 }
