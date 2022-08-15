@@ -15,48 +15,7 @@ export const HomeContainer = styled.main`
   }
 `
 
-export const CountDownContainer = styled.div`
-  font-family: 'Roboto Mono', sans-serif;
-  font-size: 10rem;
-  line-height: 8rem;
-
-  color: ${(props) => props.theme['gray-100']};
-
-  display: flex;
-  gap: 1rem;
-
-  span {
-    background: ${(props) => props.theme['gray-600']};
-    padding: 2rem 1rem;
-    border-radius: 8px;
-  }
-`
-
-export const FormContainer = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  color: ${(props) => props.theme['gray-100']};
-  font-size: 1.125rem;
-  font-weight: bold;
-
-  flex-wrap: wrap;
-`
-
-export const Separator = styled.div`
-  padding: 2rem 0;
-  color: ${(props) => props.theme['purple-500']};
-  width: 4rem;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-`
-
-export const StartCountdownButton = styled.button`
+export const BaseCountdownButton = styled.button`
   width: 100%;
   border: 0;
   padding: 1rem;
@@ -84,33 +43,27 @@ export const StartCountdownButton = styled.button`
   }
 `
 
-const BaseInput = styled.input`
-  background: transparent;
-  border: 0;
-  height: 2.5rem;
-  border-bottom: 2px solid ${(props) => props.theme['gray-500']};
-  font-weight: bold;
-  font-size: 1.125rem;
-  padding: 0 0.5rem;
+export const StartCountdownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['purple-500']};
   color: ${(props) => props.theme['gray-100']};
 
-  &::placeholder {
-    color: ${(props) => props.theme['gray-500']};
-  }
-
-  &:focus {
-    box-shadow: none;
-    border-color: ${(props) => props.theme['purple-500']};
-
-    transition: 500ms;
+  &:not(:disabled):hover {
     filter: brightness(1.5);
+    transition: 500ms;
+  }
+
+  &:disabled {
+    background-color: ${(props) => props.theme['purple-700']};
+    cursor: not-allowed;
   }
 `
 
-export const TaskInput = styled(BaseInput)`
-  flex: 1;
-`
+export const StopCountdownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['red-500']};
+  color: ${(props) => props.theme['gray-100']};
 
-export const MinutesAmountInput = styled(BaseInput)`
-  width: 4rem;
+  &:not(:disabled):hover {
+    filter: brightness(1.5);
+    transition: 500ms;
+  }
 `
